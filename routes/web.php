@@ -19,4 +19,4 @@ Route::get('/hello', function() {
     echo "Hello World!";
 });
 
-Route::get('/series', 'SeriesController@listSeries');
+Route::get('/series', 'SeriesController@index');
