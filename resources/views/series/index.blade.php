@@ -6,6 +6,12 @@ Series
 
 @section('content')
 
+@if(!empty($message))
+<div class="alert alert-success">
+    {{ $message }} 
+</div>
+@endif
+
 <a href="/series/create" class="btn btn-dark mb-2">Add</a>
 
 <ul class="list-group">
