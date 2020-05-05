@@ -10,7 +10,7 @@ class SeriesController extends Controller
 
     public function index()
     {
-        $series = Serie::all();
+        $series = Serie::query()->orderBy('name')->get();
 	return view ('series.index', compact('series'));
     }
 
@@ -23,6 +23,6 @@ class SeriesController extends Controller
     {
         $serie = Serie::create($request->all());
 
-	echo "Serie with id {$serie->id} was created: {$serie->name}";
+	return redirect('/series');
     }
 }
