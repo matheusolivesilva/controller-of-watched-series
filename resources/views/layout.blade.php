@@ -11,15 +11,10 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Series</h1>
-	</div>
-
-	<a href="#" class="btn btn-dark mb-2">Add</a>
-
-        <ul class="list-group">
-        <?php foreach ($series as $serie): ?>
-        <li class="list-group-item"><?= $serie; ?></li>
-        <?php endforeach; ?>
+            <h1>@yield('header')</h1>
+        </div>
+	@yield('content')
     </div>
 </body>
 </html>
+
