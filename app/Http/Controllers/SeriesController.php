@@ -31,7 +31,7 @@ class SeriesController extends Controller
 	    "The serie with id {$serie->id} was successfully created with the name {$serie->name}"
 	);
         
-	return redirect('/series');
+	return redirect()->route('list_series');
     }
 
     public function destroy (Request $request)
@@ -43,6 +43,6 @@ class SeriesController extends Controller
 	     'Serie successfully deleted'
 	    );
 
-        return redirect('/series');
+        return redirect()->route('list_series');
     }
 }
