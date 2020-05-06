@@ -24,6 +24,9 @@ class SeriesController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' =>'required|min:3'
+	]);
         $serie = Serie::create($request->all());
 	$request->session()
 	->flash(
