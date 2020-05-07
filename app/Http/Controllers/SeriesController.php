@@ -26,7 +26,7 @@ class SeriesController extends Controller
     {
         $serie = Serie::create(['name' => $request->name]);
 	$nmrSeasons = $request->nmr_seasons;
-	for ($i = 0; $i <= $nmrSeasons; $i++) {
+	for ($i = 1; $i <= $nmrSeasons; $i++) {
 	    $season = $serie->seasons()->create(['number' => $i]);
 
 	    for ($j = 1; $j <= $request->ep_by_season; $j++) {
