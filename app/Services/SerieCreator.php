@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Serie;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facade\DB; 
+use Illuminate\Support\Facades\DB; 
 
 class SerieCreator
 {
@@ -19,6 +19,7 @@ class SerieCreator
 	$serie = Serie::create(['name' => $serieName]);
 	$this->createSeasons($nmrSeason, $epBySeason, $serie);
 	DB::commit();
+	return $serie;
     }
 
     private function createSeasons(int $nmrSeasons, int $epBySeason, Serie $serie)
