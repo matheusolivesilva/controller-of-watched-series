@@ -24,7 +24,7 @@ class SerieCreator
 
     private function createSeasons(int $nmrSeasons, int $epBySeason, Serie $serie)
     {
-        for ($i = 0; $i <= $nmrSeasons; $i++) {
+        for ($i = 1; $i <= $nmrSeasons; $i++) {
             $season = $serie->seasons()->create(['number' => $i]);
 	    $this->createEpisodes($epBySeason, $season);
 	}
