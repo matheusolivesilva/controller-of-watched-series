@@ -16,4 +16,5 @@ class SeasonsController extends Controller
 	   'seasons.index', 
 	   compact('serie', 'seasons'));
     } 
+
 }
