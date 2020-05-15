@@ -6,11 +6,7 @@ Series
 
 @section('content')
 
-@if(!empty($message))
-<div class="alert alert-success">
-    {{ $message }} 
-</div>
-@endif
+@include('message', ['message' => $message])
 
 <a href="{{ route('create_serie_form') }}" class="btn btn-dark mb-2">Add</a>
 
