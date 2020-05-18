@@ -6,12 +6,19 @@ use App\{Serie, Season, Episode};
 use App\Services\{SerieCreator, SerieRemover};
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class SeriesController extends Controller
 {
 
+    public function __constructor()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
+
         $series = Serie::query()
 	    ->orderBy('name')
 	    ->get();
