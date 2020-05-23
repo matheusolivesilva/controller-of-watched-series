@@ -34,3 +34,7 @@ Route::post('/season/{season}/episodes/watch', 'EpisodesController@watch');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/signin', 'SignInController@signin');
+
+Route::get('/signin', 'SignInController@index');
