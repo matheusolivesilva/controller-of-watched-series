@@ -7,9 +7,9 @@ Series
 @section('content')
 
 @include('message', ['message' => $message])
-
+@auth
 <a href="{{ route('create_serie_form') }}" class="btn btn-dark mb-2">Add</a>
-
+@endauth
 <ul class="list-group">
 
 @foreach ($series as $serie)
@@ -29,18 +29,22 @@ Series
     </div>
 
     <span class="d-flex">
+        @auth
         <button class="btn btn-info btn-sm mr-1" onclick="toggleInput({{ $serie->id }})">
             <i class="fas fa-edit"></i>
 	</button>
+	@endauth
         <a href="/series/{{ $serie->id }}/seasons" class="btn btn-info btn-sm mr-1">
 	    <i class="fas fa-external-link-alt"></i>
 	</a>
     </span>
+    @auth
     <form method="post" action="/series/remove/{{ $serie->id }}" onsubmit="return confirm('Are you sure you want to delete the {{ addslashes( $serie->name) }}?')">
         @csrf
 	@method('DELETE')
         <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
     </form>
+    @endauth
 </li>
 @endforeach
 
