@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class SeriesController extends Controller
 {
 
-    public function __constructor()
-    {
-        $this->middleware('auth');
-    }
-
     public function index(Request $request)
     {
 
