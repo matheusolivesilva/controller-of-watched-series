@@ -21,14 +21,20 @@ Route::get('/hello', function() {
 
 Route::get('/series', 'SeriesController@index')
     ->name('list_series')
-    ->middleware('auth');
-Route::get('/series/create', 'SeriesController@create')->name('create_serie_form');
-Route::post('/series/create', 'SeriesController@store');
-Route::delete('/series/remove/{id}', 'SeriesController@destroy');
+    ->middleware('authenticator');
+Route::get('/series/create', 'SeriesController@create')
+    ->name('create_serie_form')
+    ->middleware('authenticator');
+Route::post('/series/create', 'SeriesController@store')
+    ->middleware('authenticator');
+Route::delete('/series/remove/{id}', 'SeriesController@destroy')
+    ->middleware('authenticator');
 Route::get('/series/{serieId}/seasons', 'SeasonsController@index');
-Route::post('/series/{id}/editName', 'SeriesController@editName');
+Route::post('/series/{id}/editName', 'SeriesController@editName')
+    ->middleware('authenticator');
 Route::get('/seasons/{season}/episodes', 'EpisodesController@index');
-Route::post('/season/{season}/episodes/watch', 'EpisodesController@watch');
+Route::post('/season/{season}/episodes/watch', 'EpisodesController@watch')
+    ->middleware('authenticator');
 
 
 Auth::routes();
@@ -42,3 +48,8 @@ Route::get('/signin', 'SignInController@index');
 Route::get('/signup', 'SignUpController@create');
 
 Route::post('/signup', 'SignUpController@store');
+
+Route::get('/logout', function() {
+    Auth::logout();
+    return redirect('/signin');
+});
