@@ -10,11 +10,8 @@ use App\Serie;
 
 class SeriesCreatorTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+
     public function testSerieCreator()
     {
         $serieCreator = new SerieCreator();
